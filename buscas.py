@@ -36,7 +36,7 @@ def buscaLargura(configInicial):
     ultimoInstante = datetime.datetime.now()
     print('Tempo Total de Execução da Busca Cega:', ultimoInstante-primeiroInstante)
 
-def buscaAestrela(configInicial):
+def buscaAestrelaPecas(configInicial):
     primeiroInstante = datetime.datetime.now()
     fila = []
     fila.append(configInicial)
@@ -45,31 +45,77 @@ def buscaAestrela(configInicial):
     jogadaExistente = False
     listaJogadas = []
     while (endgame == False):
-        #Aqui foram feitas as alteração em relação à ordenação
+        maiorManhattan = 0
         for n in fila:
             if (n[4][1] > maiorManhattan):
                 maiorManhattan = n[4][1]
-        sorted(fila, key = lambda x: maiorManhattan, reverse= False)
+
+        fila.sort(key = lambda x: x[4][1], reverse= False)
 
         listaExpandir = copy.deepcopy(fila[0])
         listaJogadas.append(fila.pop(0))
         
         nosExp = nosExp+1
-        maiorManhattan = 0
-        
-       
         print('\nNó expandido:', nosExp)
+        
         expansaoJogo.mostraTabuleiro(listaExpandir)
          
         if expansaoJogo.verificaVitoria(listaExpandir) == True:
             print("----------------------------------")
             print("\n Solução Encontrada com sucesso!")
             print("----------------------------------")
+            print('Filhos abertos:' , len(fila))
+            print('Total de nós:', (len(fila)+nosExp))
             endgame = True
         else:
             jogadasExpandidas = expansaoJogo.expandir(listaExpandir)
             for n in jogadasExpandidas:
                 n[4][0] = pecasFora(n)
+                for m in listaJogadas:
+                    if(n[0][0]==m[0][0] and n[0][1]==m[0][1] and n[0][2]==m[0][2] and n[1][0]==m[1][0] and n[1][1]==m[1][1] and n[1][2]==m[1][2] and n[2][0]==m[2][0] and n[2][1]==m[2][1] and n[2][2]==m[2][2]):
+                        jogadaExistente = True
+                if(jogadaExistente == False):
+                    fila.append(n)
+                else:
+                    jogadaExistente = False  
+                listaExpandir.clear()
+    ultimoInstante = datetime.datetime.now()
+    print('Tempo Total de Execução da Busca por A-Estrela:', ultimoInstante-primeiroInstante)
+
+def buscaAestrelaManhattan(configInicial):
+    primeiroInstante = datetime.datetime.now()
+    fila = []
+    fila.append(configInicial)
+    nosExp = 0
+    endgame = False
+    jogadaExistente = False
+    listaJogadas = []
+    while (endgame == False):
+        maiorManhattan = 0
+        for n in fila:
+            if (n[4][1] > maiorManhattan):
+                maiorManhattan = n[4][1]
+
+        fila.sort(key = lambda x: x[4][1], reverse= False)
+
+        listaExpandir = copy.deepcopy(fila[0])
+        listaJogadas.append(fila.pop(0))
+        
+        nosExp = nosExp+1
+        print('\nNó expandido:', nosExp)
+        
+        expansaoJogo.mostraTabuleiro(listaExpandir)
+         
+        if expansaoJogo.verificaVitoria(listaExpandir) == True:
+            print("----------------------------------")
+            print("\n Solução Encontrada com sucesso!")
+            print("----------------------------------")
+            print('Filhos abertos:' , len(fila))
+            print('Total de nós:', (len(fila)+nosExp))
+            endgame = True
+        else:
+            jogadasExpandidas = expansaoJogo.expandir(listaExpandir)
+            for n in jogadasExpandidas:
                 n[4][1] = Manhattan(n)
                 for m in listaJogadas:
                     if(n[0][0]==m[0][0] and n[0][1]==m[0][1] and n[0][2]==m[0][2] and n[1][0]==m[1][0] and n[1][1]==m[1][1] and n[1][2]==m[1][2] and n[2][0]==m[2][0] and n[2][1]==m[2][1] and n[2][2]==m[2][2]):
