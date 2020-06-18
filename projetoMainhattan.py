@@ -46,12 +46,17 @@ while(continuar == 1):
     print("O tabuleiro ficou configurado da seguinte forma:")
     expansaoJogo.mostraTabuleiro(configInicial)
     
+    configInicial[4][0] = buscas.pecasFora(configInicial)
+    configInicial[4][1] = buscas.Manhattan(configInicial)
+
     #time.sleep(1)
     print("As buscas disponíveis para resolução são: Busca Cega em Largura ou Busca Heurística com A-Estrela")
     print("Para continuar, informe qual algoritmo deseja para a busca")
     print("1: Busca em Largura")
     print("2: Busca Utilizando A-Estrela com Heurística de Peças fora do Lugar?")
     print("3: Busca utilizando A-Estrela com Heurística de Distância de Manhattan?")
+
+
 
     op = int(input('Informe uma opção:'))
 
