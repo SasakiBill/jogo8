@@ -67,7 +67,7 @@ def buscaAestrelaPecas(configInicial):
             if (n[4][1] > maiorManhattan):
                 maiorManhattan = n[4][1]
 
-        fila.sort(key = lambda x: x[4][1], reverse= False)
+        fila.sort(key = lambda x: x[4][0], reverse= False)
 
         listaExpandir = copy.deepcopy(fila[0])
         listaJogadas.append(fila.pop(0))
@@ -99,6 +99,10 @@ def buscaAestrelaPecas(configInicial):
                 expansaoJogo.mostraTabuleiro(n)
                 print("\n")
             endgame = True
+            '''
+            for n in fila:
+                print(f'{n[4][0]}\n')
+            '''
         else:
             jogadasExpandidas = expansaoJogo.expandir(listaExpandir)
             for n in jogadasExpandidas:
@@ -160,6 +164,10 @@ def buscaAestrelaManhattan(configInicial):
                 expansaoJogo.mostraTabuleiro(n)
                 print("\n")
             endgame = True
+            '''
+            for n in fila:
+                print(f'{n[4][1]}\n')
+            '''
         else:
             jogadasExpandidas = expansaoJogo.expandir(listaExpandir)
             for n in jogadasExpandidas:
