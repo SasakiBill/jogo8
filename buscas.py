@@ -21,6 +21,23 @@ def buscaLargura(configInicial):
             print("----------------------------------")
             print("\n Solução Encontrada com sucesso!")
             print("----------------------------------")
+            print('Filhos abertos:' , len(fila))
+            print('Total de nós:', (len(fila)+nosExp))
+            path = []
+            path.append(copy.deepcopy(listaExpandir))
+            while True:
+                supAth = copy.deepcopy(path[-1])
+                if(supAth[3][1] == None):
+                    break
+                else:
+                    path.append(copy.deepcopy(supAth[3][1]))
+                    supAth.clear()
+            print('\n--------\n')
+            path.reverse()
+            print('Caminho do Jogo dos 8: ')
+            for n in path:
+                expansaoJogo.mostraTabuleiro(n)
+                print("\n")
             endgame = True
         else:
             jogadasExpandidas = expansaoJogo.expandir(listaExpandir)
@@ -66,6 +83,21 @@ def buscaAestrelaPecas(configInicial):
             print("----------------------------------")
             print('Filhos abertos:' , len(fila))
             print('Total de nós:', (len(fila)+nosExp))
+            path = []
+            path.append(copy.deepcopy(listaExpandir))
+            while True:
+                supAth = copy.deepcopy(path[-1])
+                if(supAth[3][1] == None):
+                    break
+                else:
+                    path.append(copy.deepcopy(supAth[3][1]))
+                    supAth.clear()
+            print('\n--------\n')
+            path.reverse()
+            print('Caminho do Jogo dos 8: ')
+            for n in path:
+                expansaoJogo.mostraTabuleiro(n)
+                print("\n")
             endgame = True
         else:
             jogadasExpandidas = expansaoJogo.expandir(listaExpandir)
@@ -112,6 +144,21 @@ def buscaAestrelaManhattan(configInicial):
             print("----------------------------------")
             print('Filhos abertos:' , len(fila))
             print('Total de nós:', (len(fila)+nosExp))
+            path = []
+            path.append(copy.deepcopy(listaExpandir))
+            while True:
+                supAth = copy.deepcopy(path[-1])
+                if(supAth[3][1] == None):
+                    break
+                else:
+                    path.append(copy.deepcopy(supAth[3][1]))
+                    supAth.clear()
+            print('\n--------\n')
+            path.reverse()
+            print('Caminho percorrido até o estado final: ')
+            for n in path:
+                expansaoJogo.mostraTabuleiro(n)
+                print("\n")
             endgame = True
         else:
             jogadasExpandidas = expansaoJogo.expandir(listaExpandir)
