@@ -34,7 +34,6 @@ while(continuar == 1):
     esc = int(input("\nInforme a sua escolha"))
 
     if(esc == 1):
-        #testar essa configuração com manhattan
         configInicial = [[2,8,1],[0,4,3],[7,6,5],[0,None],[0, 0]]
     elif(esc == 2):
         configInicial = [[1,3,4],[8,6,2],[7,0,5],[0,None],[0, 0]]
