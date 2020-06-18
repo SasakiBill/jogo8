@@ -1,0 +1,2 @@
+O trabalho atual está tentando uma troca de utilização de métodos de ordenação, anteriormente feitos "à mão", agora tento atualizar o projeto para utilizar o Sorted, função em python. 
+Entretanto, há um grande problema ao atualizar para essa função, visto que uma parte da lógica deverá ser visto novamente. Por isso, deixei o projeto em andamento.
