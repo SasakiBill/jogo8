@@ -34,6 +34,7 @@ while(continuar == 1):
     esc = int(input("\nInforme a sua escolha"))
 
     if(esc == 1):
+        #testar essa configuração com manhattan
         configInicial = [[2,8,1],[0,4,3],[7,6,5],[0,None],[0, 0]]
     elif(esc == 2):
         configInicial = [[1,3,4],[8,6,2],[7,0,5],[0,None],[0, 0]]
@@ -50,14 +51,17 @@ while(continuar == 1):
     print("As buscas disponíveis para resolução são: Busca Cega em Largura ou Busca Heurística com A-Estrela")
     print("Para continuar, informe qual algoritmo deseja para a busca")
     print("1: Busca em Largura")
-    print("2: Busca Utilizando A-Estrela")
+    print("2: Busca Utilizando A-Estrela com Heurística de Peças fora do Lugar?")
+    print("3: Busca utilizando A-Estrela com Heurística de Distância de Manhattan?")
 
     op = int(input('Informe uma opção:'))
 
     if(op==1):
         buscas.buscaLargura(configInicial)
     elif(op==2):
-        buscas.buscaAestrela(configInicial)
+        buscas.buscaAestrelaPecas(configInicial)
+    elif(op==3):
+        buscas.buscaAestrelaManhattan(configInicial)
     else:
         print("Opção Inválida")
         break
