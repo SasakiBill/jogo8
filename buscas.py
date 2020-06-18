@@ -45,6 +45,7 @@ def buscaAestrela(configInicial):
     jogadaExistente = False
     listaJogadas = []
     while (endgame == False):
+        #Aqui foram feitas as alteração em relação à ordenação
         for n in fila:
             if (n[4][1] > maiorManhattan):
                 maiorManhattan = n[4][1]
