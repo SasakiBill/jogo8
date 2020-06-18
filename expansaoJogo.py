@@ -39,28 +39,28 @@ def expandir(tab):
         a[1][1] = a[0][1]
         a[0][1] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra direita
         a = copy.deepcopy(tab)
         a[1][1] = a[1][0]
         a[1][0] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra esquerda
         a = copy.deepcopy(tab)
         a[1][1] = a[1][2]
         a[1][2] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra cima
         a = copy.deepcopy(tab)
         a[1][1] = a[2][1]
         a[2][1] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
     #2 se vazio esta no canto esquerdo superior
     elif tab[0][0]==0:
@@ -69,14 +69,14 @@ def expandir(tab):
         a[0][0] = a[1][0]
         a[1][0] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra esquerda
         a = copy.deepcopy(tab)
         a[0][0] = a[0][1]
         a[0][1] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
     #3 se vazio esta no canto direito superior
     elif tab[0][2]==0:
@@ -85,14 +85,14 @@ def expandir(tab):
         a[0][2] = a[1][2]
         a[1][2] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra direita
         a = copy.deepcopy(tab)
         a[0][2] = a[0][1]
         a[0][1] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
     #4 se vazio esta no canto inferior esquerdo
     elif tab[2][0]==0:
@@ -101,14 +101,14 @@ def expandir(tab):
         a[2][0] = a[1][0]
         a[1][0] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra esquerda
         a = copy.deepcopy(tab)
         a[2][0] = a[2][1]
         a[2][1] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
     #5 se vazio esta no canto inferior direito
     elif tab[2][2]==0:
@@ -117,14 +117,14 @@ def expandir(tab):
         a[2][2] = a[1][2]
         a[1][2] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra direita
         a = copy.deepcopy(tab)
         a[2][2] = a[2][1]
         a[2][1] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
     #6 se vazio esta no meio da linha de cima
     elif tab[0][1]==0:
@@ -133,21 +133,21 @@ def expandir(tab):
         a[0][1] = a[1][1]
         a[1][1] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra direita
         a = copy.deepcopy(tab)
         a[0][1] = a[0][0]
         a[0][0] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra esquerda
         a = copy.deepcopy(tab)
         a[0][1] = a[0][2]
         a[0][2] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
     #7 se vazio esta no meio da linha de baixo
     elif tab[2][1]==0:
@@ -156,21 +156,21 @@ def expandir(tab):
         a[2][1] = a[1][1]
         a[1][1] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra direita
         a = copy.deepcopy(tab)
         a[2][1] = a[2][0]
         a[2][0] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra esquerda
         a = copy.deepcopy(tab)
         a[2][1] = a[2][2]
         a[2][2] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
     #8 se vazio esta no meio da coluna da esquerda
     elif tab[1][0]==0:
@@ -179,21 +179,21 @@ def expandir(tab):
         a[1][0] = a[0][0]
         a[0][0] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra cima
         a = copy.deepcopy(tab)
         a[1][0] = a[2][0]
         a[2][0] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra esquerda
         a = copy.deepcopy(tab)
         a[1][0] = a[1][1]
         a[1][1] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
     #9 se vazio esta no meio da coluna da direita
     elif tab[1][2]==0:
@@ -202,21 +202,21 @@ def expandir(tab):
         a[1][2] = a[0][2]
         a[0][2] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra cima
         a = copy.deepcopy(tab)
         a[1][2] = a[2][2]
         a[2][2] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
         # move pra direita
         a = copy.deepcopy(tab)
         a[1][2] = a[1][1]
         a[1][1] = 0
         a[3][0] = a[3][0]+1
-        a[3][1] = tab
+        a[3][1] = copy.deepcopy(tab)
         jogadas.append(a)
     return jogadas
 
